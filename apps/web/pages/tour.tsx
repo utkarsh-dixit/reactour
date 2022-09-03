@@ -216,7 +216,7 @@ export default function Docs() {
       <AutoplayDemo />
       <DisableActionsDemo />
       <HOC />
-      <Resize/>
+      <Resize />
       {/* <FollowScrollDemo /> */}
     </Container>
   )
@@ -736,45 +736,75 @@ function HOC() {
 }
 
 const resizeContent = [
-  (<div>HEllo world<br/>Test</div>),
-  (<div>HEllo world<br/>Test<br/>HEllo world<br/>Test<br/>HEllo world<br/>Test<br/>HEllo world<br/>Test</div>),
-
-];
+  <div>
+    HEllo world
+    <br />
+    Test
+  </div>,
+  <div>
+    HEllo world
+    <br />
+    Test
+    <br />
+    HEllo world
+    <br />
+    Test
+    <br />
+    HEllo world
+    <br />
+    Test
+    <br />
+    HEllo world
+    <br />
+    Test
+  </div>,
+]
 
 function InnerResize() {
-  const { setIsOpen, setCurrentStep, setDisabledActions, disabledActions } = useTour();
-  const [selectedTab, setSelectedTab] = useState(0);
+  const { setIsOpen, setCurrentStep, setDisabledActions, disabledActions } =
+    useTour()
+  const [selectedTab, setSelectedTab] = useState(0)
   const handleTab = useCallback((index) => {
-    setIsOpen(true);
-    setSelectedTab(index);
-  }, []);
+    setIsOpen(true)
+    setSelectedTab(index)
+  }, [])
 
   const handleSwitch = () => {
-    setCurrentStep(1);
-    setTimeout( () => {
-
-    })
+    setCurrentStep(1)
+    setTimeout(() => {})
   }
 
   return (
     <div>
-    <div data-tour={"step-1-resize-observer"} style={{ display: "inline-block" }}>
-      <div style={{display: "flex", justifyContent: "center", alignItems: "center", gap: "20px"}}>
-        <div onClick={handleTab.bind(this, 0)}>Tab 0</div>
-        <div onClick={handleTab.bind(this, 1)}>Tab 1</div>
-      </div>
-      <div className="switch" onClick={handleSwitch}>Swtich</div>
-      <p className="inner-content">
-        <div onClick={handleTab.bind(this, 0)}>Tab 0</div>
-        <div onClick={handleTab.bind(this, 1)}>Tab 1</div>
-        {resizeContent[selectedTab]}
+      <div
+        data-tour={'step-1-resize-observer'}
+        style={{ display: 'inline-block' }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '20px',
+          }}
+        >
+          <div onClick={handleTab.bind(this, 0)}>Tab 0</div>
+          <div onClick={handleTab.bind(this, 1)}>Tab 1</div>
+        </div>
+        <div className="switch" onClick={handleSwitch}>
+          Swtich
+        </div>
+        <p className="inner-content">
+          <div onClick={handleTab.bind(this, 0)}>Tab 0</div>
+          <div onClick={handleTab.bind(this, 1)}>Tab 1</div>
+          {resizeContent[selectedTab]}
         </p>
+      </div>
     </div>
-    </div>   
   )
 }
 function Resize() {
-   const stepsa = [
+  const stepsa = [
     {
       selector: '[data-tour="step-1-resize-observer"] .switch',
       content: 'Goto next step',
@@ -784,13 +814,17 @@ function Resize() {
       selector: '[data-tour="step-1-resize-observer"]',
       content: 'Lorem ipsum dolor sit amet',
       resizeObservables: ['[data-tour="step-1-resize-observer"]'],
-    }
-  ];
-
+    },
+  ]
 
   return (
-    <Demo title="Resize" demoId="resize-observer" length={2} customSteps={stepsa}>
-      <InnerResize/>
+    <Demo
+      title="Resize"
+      demoId="resize-observer"
+      length={2}
+      customSteps={stepsa}
+    >
+      <InnerResize />
     </Demo>
   )
 }

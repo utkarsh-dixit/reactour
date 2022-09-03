@@ -85,7 +85,7 @@ export function useSizes(
 
   function observableRefresher() {
     setObserving(true)
-    console.log("Target is", target);
+    console.log('Target is', target)
     const { hasHighligtedElems, ...dimesions } = getHighlightedRect(
       target,
       step?.highlightedSelectors,
