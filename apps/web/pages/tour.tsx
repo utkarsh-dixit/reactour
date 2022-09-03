@@ -185,7 +185,9 @@ export default function Docs() {
       <Demo
         title="Disable dots navigation"
         demoId="disable-dots-nav"
-        providerProps={{}}
+        providerProps={{
+          disableDotsNavigation: true,
+        }}
       >
         <Placeholder demoId="disable-dots-nav" length={3} />
       </Demo>
