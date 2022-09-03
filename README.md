@@ -1,7 +1,6 @@
 <p align="center">
   <img alt="reactour" title="reactour" src="https://raw.githubusercontent.com/elrumordelaluz/reactour/main/logo.svg" width="250">
 </p>
-
 <p align="center" style="margin-top: 40px">
   <strong>Tourist Guide</strong> and a set of <strong>Assistants</strong> to travel into your React Components
 </p>
